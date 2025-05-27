@@ -16,6 +16,9 @@ preferred-dark-theme = "navy"
 git-repository-url = "https://github.com/yourusername/rust-async-book"
 git-repository-icon = "fa-github"
 edit-url-template = "https://github.com/yourusername/rust-async-book/edit/main/{path}"
+additional-js = ["book.js"]
+additional-css = ["custom.css"]
+mathjax-support = true
 
 [output.html.fold]
 enable = true
@@ -31,15 +34,6 @@ boost-paragraph = 1
 expand = true
 heading-split-level = 2
 copy-title = true
-
-[output.html.mathjax-support]
-enable = true
-
-[output.html.additional-js]
-files = ["book.js"]
-
-[output.html.additional-css]
-files = ["custom.css"]
 
 [preprocessor.links]
 renderers = ["html"]
