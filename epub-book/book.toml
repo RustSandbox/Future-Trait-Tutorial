@@ -1,0 +1,32 @@
+[book]
+title = "The Complete Future Trait Guide"
+description = "Mastering Async Programming in Rust - EPUB Edition"
+authors = ["Future Trait Tutorial"]
+language = "en"
+multilingual = false
+src = "src"
+
+[rust]
+edition = "2021"
+
+[output.epub]
+# EPUB-specific configuration
+cover-image = "cover.png"
+additional-css = ["theme/epub.css"]
+use-default-css = true
+curly-quotes = true
+
+# Metadata for EPUB
+[output.epub.metadata]
+title = "The Complete Future Trait Guide"
+description = "A comprehensive guide to mastering async programming in Rust through the Future trait"
+creator = "Future Trait Tutorial"
+language = "en"
+subject = "Programming, Rust, Async Programming, Future Trait"
+date = "2024"
+identifier = "future-trait-guide-rust"
+publisher = "Future Trait Tutorial"
+
+# Optional: disable HTML output for EPUB-only build
+# [output.html]
+# optional = true

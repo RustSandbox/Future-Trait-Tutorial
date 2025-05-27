@@ -39,6 +39,13 @@ enable = true
 enable = false
 level = 0
 
+[output.epub]
+# EPUB-specific configuration
+cover-image = "theme/cover.png"
+additional-css = ["theme/epub.css"]
+use-default-css = true
+curly-quotes = true
+
 [preprocessor.links]
 # Custom link preprocessing if needed
 

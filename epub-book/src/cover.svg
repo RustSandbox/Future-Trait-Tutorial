@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="800"
+    xmlns="http://www.w3.org/2000/svg">
+    <!-- Background gradient -->
+    <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#2c3e50;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#3498db;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f39c12;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+
+    <!-- Background -->
+    <rect width="600" height="800" fill="url(#bg)"/>
+
+    <!-- Rust logo inspired element -->
+    <circle cx="300" cy="200" r="60" fill="#ce422b" opacity="0.8"/>
+    <circle cx="300" cy="200" r="40" fill="#f74c00" opacity="0.9"/>
+
+    <!-- Title -->
+    <text x="300" y="350" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="42" font-weight="bold">
+    The Complete
+    </text>
+    <text x="300" y="400" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="48" font-weight="bold">
+    Future Trait
+    </text>
+    <text x="300" y="450" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="42" font-weight="bold">
+    Guide
+    </text>
+
+    <!-- Subtitle -->
+    <text x="300" y="520" text-anchor="middle" fill="#ecf0f1" font-family="Arial, sans-serif" font-size="24">
+    Mastering Async Programming in Rust
+    </text>
+
+    <!-- Decorative line -->
+    <rect x="150" y="560" width="300" height="4" fill="url(#accent)"/>
+
+    <!-- Code snippet decoration -->
+    <rect x="80" y="620" width="440" height="120" fill="#1a1a1a" rx="8" opacity="0.8"/>
+    <text x="100" y="650" fill="#f8f8f2" font-family="Courier New, monospace" font-size="16">
+    async fn future_example() {
+    </text>
+    <text x="120" y="675" fill="#66d9ef" font-family="Courier New, monospace" font-size="16">
+    let result = my_future.await;
+    </text>
+    <text x="120" y="700" fill="#a6e22e" font-family="Courier New, monospace" font-size="16">
+    println!("Result: {}", result);
+    </text>
+    <text x="100" y="725" fill="#f8f8f2" font-family="Courier New, monospace" font-size="16">
+    }
+    </text>
+
+    <!-- Author/Source -->
+    <text x="300" y="770" text-anchor="middle" fill="#bdc3c7" font-family="Arial, sans-serif" font-size="18">
+    Future Trait Tutorial
+    </text>
+</svg> 

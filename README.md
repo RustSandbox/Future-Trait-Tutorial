@@ -20,6 +20,25 @@ The book is organized into four parts:
 
 Visit the book at `http://localhost:3000` for the complete learning experience!
 
+### 📱 EPUB Version
+
+Generate an EPUB version for e-readers and mobile devices:
+
+```bash
+# Build EPUB version
+./build_epub.sh
+
+# Or manually
+cd epub-book && mdbook build
+```
+
+The EPUB version includes:
+- **E-reader optimized** typography and layout
+- **Dark mode support** for comfortable reading
+- **Proper navigation** with table of contents
+- **Code syntax highlighting** optimized for e-ink displays
+- **Compatible** with Kindle, Kobo, Apple Books, and more
+
 ## 🚀 Quick Start
 
 ```bash
