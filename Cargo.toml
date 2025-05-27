@@ -1,0 +1,63 @@
+[package]
+name = "future_trait_tutorial"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Core async runtime - Tokio is the most popular async runtime for Rust
+tokio = { version = "1.0", features = ["full"] }
+
+# Futures utilities and combinators
+futures = "0.3"
+
+# For async-std examples (alternative runtime)
+async-std = { version = "1.12", features = ["attributes"] }
+
+# For timing and delays
+tokio-util = "0.7"
+
+# For HTTP client examples
+reqwest = { version = "0.11", features = ["json"] }
+
+# For serialization in examples
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# For error handling examples
+anyhow = "1.0"
+thiserror = "1.0"
+
+# For testing async code
+tokio-test = "0.4"
+
+[dev-dependencies]
+# Additional testing utilities
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bin]]
+name = "basic_future"
+path = "src/examples/basic_future.rs"
+
+[[bin]]
+name = "custom_delay"
+path = "src/examples/custom_delay.rs"
+
+[[bin]]
+name = "combinators"
+path = "src/examples/combinators.rs"
+
+[[bin]]
+name = "error_handling"
+path = "src/examples/error_handling.rs"
+
+[[bin]]
+name = "real_world"
+path = "src/examples/real_world.rs"
+
+[[bin]]
+name = "advanced_patterns"
+path = "src/examples/advanced_patterns.rs"
+
+[[bin]]
+name = "autonomous_agent"
+path = "src/examples/autonomous_agent.rs"
