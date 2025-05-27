@@ -14,3 +14,6 @@ ebook*.docx
 ebook*.docx
 *.pdf
 lulu*.md
+EPUB_SETUP_GUIDE.md
+
+EPUB_SUCCESS_SUMMARY.md

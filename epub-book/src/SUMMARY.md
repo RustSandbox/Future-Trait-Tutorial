@@ -1,5 +1,7 @@
 # Summary
 
+[Title Page](./title-page.md)
+[Copyright](./copyright-page.md)
 [Introduction](./introduction.md)
 
 # Part I: Fundamentals
