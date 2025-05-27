@@ -2,6 +2,33 @@
 
 **By Hamze Ghalebi**
 
+## 🆓 **Open Source & Free to Use**
+
+This comprehensive tutorial is **completely free and open source**! You can:
+- ✅ **Use it freely** for learning and education
+- ✅ **Share it** with others who want to learn Rust async programming
+- ✅ **Modify and adapt** the content for your own projects
+- ✅ **Contribute** improvements and fixes
+- ✅ **Use the code examples** in your own applications
+
+### 💝 **Support the Project**
+
+If you find this tutorial valuable and want to support continued development, you can purchase the professionally formatted EPUB version as a gesture of support:
+
+**📖 [Buy EPUB Version on Lulu](https://www.lulu.com/shop/hamze-ghalebi/the-complete-future-trait-guide/ebook/product-57yezzn.html?page=1&pageSize=4)**
+
+The EPUB version includes:
+- 📱 **E-reader optimized** formatting for Kindle, Kobo, Apple Books
+- 🎨 **Professional cover design** and typography
+- 📚 **Convenient offline reading** on any device
+- 💡 **Support for future updates** and improvements
+
+*Your support helps maintain and improve this free educational resource for the entire Rust community!*
+
+📋 **[Read more about supporting this project →](SUPPORT.md)**
+
+---
+
 This repository contains a comprehensive tutorial for learning the Future trait and async programming in Rust. It includes both a detailed markdown book and thoroughly documented code examples that provide hands-on learning experience.
 
 ## 📖 The Complete Future Trait Guide
@@ -256,9 +283,28 @@ This tutorial is designed for learning. If you find issues or have improvements:
 3. Ensure examples are beginner-friendly
 4. Add tests for any new functionality
 
-## 📄 License
+## 📄 License & Open Source
 
-This educational content is provided for learning purposes. Feel free to use and modify for educational use.
+**This project is completely free and open source!**
+
+### 🆓 **Free Use License**
+- ✅ **Educational Use**: Free for all educational purposes
+- ✅ **Personal Projects**: Use code examples in your own applications
+- ✅ **Commercial Use**: Incorporate patterns and examples in commercial projects
+- ✅ **Sharing**: Share and distribute freely
+- ✅ **Modification**: Adapt and modify content as needed
+
+### 🤝 **Contributing**
+We welcome contributions from the community:
+- 🐛 **Bug fixes** and improvements
+- 📝 **Documentation** enhancements
+- 💡 **New examples** and patterns
+- 🧪 **Additional tests** and validation
+
+📋 **[Read the full contributing guide →](CONTRIBUTING.md)**
+
+### 💝 **Supporting the Project**
+While this content is free, you can support continued development by purchasing the [EPUB version](https://www.lulu.com/shop/hamze-ghalebi/the-complete-future-trait-guide/ebook/product-57yezzn.html?page=1&pageSize=4) - every purchase helps maintain and improve this resource for the entire Rust community.
 
 ---
 

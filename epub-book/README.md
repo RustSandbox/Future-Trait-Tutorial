@@ -123,7 +123,7 @@ Edit `theme/epub.css` to customize:
 
 ### Cover Image
 
-Replace `theme/cover.svg` with your own design. The build script will automatically convert it to PNG if ImageMagick is available.
+The project uses `cover.png` (1024x1536 professional design). The build script will automatically copy it to the correct location.
 
 ### Metadata
 
@@ -143,7 +143,7 @@ Edit `book.toml` to update:
    ```
 
 2. **Cover image not displaying**
-   - Ensure `theme/cover.png` exists
+   - Ensure `cover.png` is in the root directory (automatically copied by build script)
    - Check that the path in `book.toml` is correct
 
 3. **Formatting issues**
