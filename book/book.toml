@@ -1,0 +1,53 @@
+[book]
+title = "Rust Async Programming with Future Trait"
+description = "A comprehensive guide to asynchronous programming in Rust using the Future trait"
+authors = ["Your Name"]
+language = "en"
+multilingual = false
+
+[build]
+build-dir = "book"
+create-missing = false
+
+[output.html]
+site-url = "/"
+default-theme = "light"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/yourusername/rust-async-book"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/yourusername/rust-async-book/edit/main/{path}"
+
+[output.html.fold]
+enable = true
+level = 1
+
+[output.html.search]
+enable = true
+limit-results = 30
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 1
+boost-paragraph = 1
+expand = true
+heading-split-level = 2
+copy-title = true
+
+[output.html.mathjax-support]
+enable = true
+
+[output.html.additional-js]
+files = ["book.js"]
+
+[output.html.additional-css]
+files = ["custom.css"]
+
+[preprocessor.links]
+renderers = ["html"]
+
+[preprocessor.index]
+renderers = ["html"]
+
+[preprocessor.syntax]
+renderers = ["html"]
+default-theme = "rust"
+preferred-dark-theme = "rust-dark"

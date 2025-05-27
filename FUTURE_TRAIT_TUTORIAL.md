@@ -71,11 +71,36 @@ pub enum Poll<T> {
 
 Let's start with simple examples to understand how futures work.
 
-### Example 1: Basic async/await
+**What you'll learn:**
+- How to define and use async functions in Rust.
+- The difference between sequential and concurrent execution.
+- Why futures are "lazy" and only do work when awaited.
 
-**File: `src/examples/basic_future.rs`**
+**Example: Basic async/await**
 
-This example demonstrates the fundamental concepts of async/await syntax and how futures work.
+```rust
+// An async function that simulates work by sleeping for a given duration.
+async fn simple_async_operation(duration: Duration, message: &str) -> String {
+    println!("Starting: {}", message);
+    sleep(duration).await; // Non-blocking sleep
+    format!("{} completed!", message)
+}
+
+// Running multiple async operations sequentially:
+let result1 = simple_async_operation(Duration::from_millis(100), "Task 1").await;
+let result2 = simple_async_operation(Duration::from_millis(200), "Task 2").await;
+
+// Running them concurrently with tokio::join!:
+let (result1, result2) = tokio::join!(
+    simple_async_operation(Duration::from_millis(100), "Task 1"),
+    simple_async_operation(Duration::from_millis(200), "Task 2")
+);
+```
+
+**How to run:**
+```bash
+cargo run --bin basic_future
+```
 
 ### Example 2: Understanding Poll States
 
@@ -91,15 +116,41 @@ This example demonstrates concurrent execution of multiple futures.
 
 ## Implementing Custom Futures {#custom-futures}
 
-### Example 4: Custom Delay Future
+**What you'll learn:**
+- How to implement the `Future` trait manually.
+- How to use `Waker` and shared state for efficient async scheduling.
+- The principle of "lazy" futures: work starts only when polled.
 
-**File: `src/examples/custom_delay.rs`**
+**Example: Custom Delay Future**
 
-A complete implementation of a custom delay future that demonstrates:
-- State management
-- Waker usage
-- Thread spawning for blocking operations
-- Proper resource cleanup
+```rust
+// A custom future that completes after a delay.
+pub struct DelayFuture {
+    shared_state: Arc<Mutex<SharedState>>,
+    duration: Duration,
+    started: bool,
+}
+
+impl Future for DelayFuture {
+    type Output = String;
+    fn poll(mut self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<Self::Output> {
+        let shared_state = self.shared_state.lock().unwrap();
+        if shared_state.completed {
+            return Poll::Ready(format!("Delay of {:?} completed!", self.duration));
+        }
+        drop(shared_state);
+        self.start_timer(); // Spawns a thread to wait and wake
+        let mut shared_state = self.shared_state.lock().unwrap();
+        shared_state.waker = Some(cx.waker().clone());
+        Poll::Pending
+    }
+}
+```
+
+**How to run:**
+```bash
+cargo run --bin custom_delay
+```
 
 ### Example 5: Custom Join Future
 
@@ -109,41 +160,92 @@ Implementation of a custom combinator that runs multiple futures concurrently.
 
 ## Working with Combinators {#combinators}
 
-### Example 6: Future Combinators
+**What you'll learn:**
+- How to use combinators like `map`, `and_then`, `join!`, and `select!` to compose async workflows.
+- How to handle errors and transform results in async chains.
+- How to run collections of futures concurrently.
 
-**File: `src/examples/combinators.rs`**
+**Example: Using map and join! combinators**
 
-Comprehensive examples of using future combinators:
-- `map()` - Transform the output
-- `and_then()` - Chain futures sequentially
-- `join!()` - Run futures concurrently
-- `select!()` - Race futures
-- `FuturesUnordered` - Dynamic collections
+```rust
+// Transform the output of a future using map
+let result = simulate_database_query("users", Duration::from_millis(100))
+    .map(|data| format!("TRANSFORMED: {}", data.to_uppercase()))
+    .await;
+
+// Run multiple async operations concurrently with join!
+let (api_result, db_result) = tokio::join!(
+    simulate_api_call("orders", Duration::from_millis(150), true),
+    simulate_database_query("inventory", Duration::from_millis(200))
+);
+```
+
+**How to run:**
+```bash
+cargo run --bin combinators
+```
 
 ## Error Handling in Async Code {#error-handling}
 
-### Example 7: Error Handling Patterns
+**What you'll learn:**
+- How to use `Result<T, E>` in async functions.
+- How to propagate errors with `?` and handle them with pattern matching.
+- How to define and use custom error types with `thiserror`.
 
-**File: `src/examples/error_handling.rs`**
+**Example: Custom error handling in async Rust**
 
-Best practices for handling errors in async code:
-- Using `Result<T, E>` with futures
-- Error propagation with `?`
-- Custom error types
-- Timeout handling
+```rust
+#[derive(Error, Debug, Clone)]
+pub enum ApiError {
+    #[error("Network error: {message}")]
+    NetworkError { message: String },
+    #[error("Authentication failed: {reason}")]
+    AuthenticationError { reason: String },
+    // ... other variants ...
+}
+
+async fn simulate_api_request(endpoint: &str, should_succeed: bool) -> Result<String, ApiError> {
+    if should_succeed {
+        Ok(format!("API response from '{}' endpoint", endpoint))
+    } else {
+        Err(ApiError::NetworkError { message: "Failed to connect".to_string() })
+    }
+}
+
+// Handling errors with pattern matching
+match simulate_api_request("users", false).await {
+    Ok(data) => println!("Success: {}", data),
+    Err(ApiError::NetworkError { message }) => println!("Network failed: {}", message),
+    Err(e) => println!("Other error: {}", e),
+}
+```
+
+**How to run:**
+```bash
+cargo run --bin error_handling
+```
 
 ## Real-World Examples {#real-world}
 
-### Example 8: HTTP Client with Async
+**What you'll learn:**
+- How to use async HTTP clients (`reqwest`) and JSON serialization (`serde`).
+- How to aggregate data from multiple async sources.
+- How to implement caching, rate limiting, and error resilience in real-world async code.
 
-**File: `src/examples/real_world.rs`**
+**Example: Making an async HTTP request with caching**
 
-A practical example showing:
-- Making HTTP requests
-- Processing JSON responses
-- Handling timeouts
-- Concurrent API calls
-- Error handling
+```rust
+let client = ApiClient::new("https://jsonplaceholder.typicode.com");
+let users = client.get_users().await?;
+
+// ApiClient uses caching and rate limiting internally
+let posts = client.get_user_posts(1).await?;
+```
+
+**How to run:**
+```bash
+cargo run --bin real_world
+```
 
 ## Advanced Patterns and Best Practices {#advanced-patterns}
 
