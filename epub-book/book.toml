@@ -1,7 +1,7 @@
 [book]
 title = "The Complete Future Trait Guide"
 description = "Mastering Async Programming in Rust - EPUB Edition"
-authors = ["Future Trait Tutorial"]
+authors = ["Hamze Ghalebi"]
 language = "en"
 multilingual = false
 src = "src"
@@ -15,17 +15,20 @@ cover-image = "cover.png"
 additional-css = ["theme/epub.css"]
 use-default-css = true
 curly-quotes = true
+unique-identifier = "isbn"
 
 # Metadata for EPUB
 [output.epub.metadata]
 title = "The Complete Future Trait Guide"
 description = "A comprehensive guide to mastering async programming in Rust through the Future trait"
-creator = "Future Trait Tutorial"
+creator = "Hamze Ghalebi"
 language = "en"
 subject = "Programming, Rust, Async Programming, Future Trait"
-date = "2024"
-identifier = "future-trait-guide-rust"
-publisher = "Future Trait Tutorial"
+date = "2025"
+identifier = "978-1-326-41893-9"
+publisher = "Lulu.com"
+isbn = "978-1-326-41893-9"
+rights = "Copyright © 2025 Hamze Ghalebi. All Rights Reserved."
 
 # Optional: disable HTML output for EPUB-only build
 # [output.html]

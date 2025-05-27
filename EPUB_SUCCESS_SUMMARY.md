@@ -6,6 +6,11 @@ The EPUB version of "The Complete Future Trait Guide" has been successfully buil
 
 ### 📊 EPUB Details
 
+- **Title**: The Complete Future Trait Guide
+- **Author**: Hamze Ghalebi
+- **ISBN**: 978-1-326-41893-9
+- **Publisher**: Lulu.com
+- **Copyright**: © 2025 Hamze Ghalebi. All Rights Reserved.
 - **File**: `The Complete Future Trait Guide.epub`
 - **Size**: 2.3MB (includes high-quality cover image)
 - **Location**: `epub-output/The Complete Future Trait Guide.epub`

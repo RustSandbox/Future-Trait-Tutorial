@@ -1,5 +1,7 @@
 # Future Trait Tutorial: Complete Guide to Async Programming in Rust
 
+**By Hamze Ghalebi**
+
 This repository contains a comprehensive tutorial for learning the Future trait and async programming in Rust. It includes both a detailed markdown book and thoroughly documented code examples that provide hands-on learning experience.
 
 ## 📖 The Complete Future Trait Guide

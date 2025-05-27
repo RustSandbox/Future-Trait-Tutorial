@@ -1,7 +1,7 @@
 [book]
 title = "The Complete Future Trait Guide"
 description = "Mastering Async Programming in Rust"
-authors = ["Future Trait Tutorial"]
+authors = ["Hamze Ghalebi"]
 language = "en"
 multilingual = false
 src = "book"
