@@ -12,7 +12,7 @@
 //! 7. Real-world error handling and resilience
 
 use anyhow::{Context, Result as AnyhowResult};
-use reqwest::{Client, Response};
+use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
@@ -666,16 +666,24 @@ async fn demonstrate_caching_and_performance() {
     let start = Instant::now();
 
     // Make multiple requests for the same data
-    let futures = vec![
+    let (users1, users2, posts1_1, posts1_2, posts2_1, posts2_2) = tokio::join!(
         client.get_users(),
         client.get_users(),
         client.get_user_posts(1),
         client.get_user_posts(1),
         client.get_user_posts(2),
         client.get_user_posts(2),
-    ];
+    );
 
-    let _results = futures::future::join_all(futures).await;
+    // Count successful requests for demonstration
+    let user_requests_ok = [&users1, &users2].iter().filter(|r| r.is_ok()).count();
+    let post_requests_ok = [&posts1_1, &posts1_2, &posts2_1, &posts2_2]
+        .iter()
+        .filter(|r| r.is_ok())
+        .count();
+    let total_successful = user_requests_ok + post_requests_ok;
+
+    println!("     {} out of 6 requests succeeded", total_successful);
     let total_time = start.elapsed();
 
     println!("     6 requests completed in {:?}", total_time);

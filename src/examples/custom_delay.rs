@@ -197,7 +197,7 @@ impl Future for DelayFuture {
     fn poll(mut self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<Self::Output> {
         // Step 1: Acquire the lock on our shared state
         // This ensures thread-safe access to the completion flag and waker
-        let mut shared_state = self.shared_state.lock().unwrap();
+        let shared_state = self.shared_state.lock().unwrap();
 
         // Step 2: Check if the delay has already completed
         if shared_state.completed {
@@ -279,7 +279,7 @@ async fn demonstrate_custom_future_usage() {
     println!("\n3. Mixing with built-in futures:");
     let start = Instant::now();
 
-    let (custom_result, builtin_result) = tokio::join!(
+    let (custom_result, _builtin_result) = tokio::join!(
         DelayFuture::new(Duration::from_millis(75)),
         tokio::time::sleep(Duration::from_millis(75))
     );

@@ -2,6 +2,10 @@
 
 **By Hamze Ghalebi**
 
+## 🔥 Featured Tutorial
+
+> 📚 **[Complete Future Trait Tutorial](FUTURE_TRAIT_TUTORIAL.md)** - A comprehensive guide to understanding and implementing the Future trait in Rust, with detailed examples and best practices.
+
 ## 🆓 **Open Source & Free to Use**
 
 This comprehensive tutorial is **completely free and open source**! You can:

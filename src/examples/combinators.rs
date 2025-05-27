@@ -363,10 +363,11 @@ async fn demonstrate_collection_combinators() {
     let start = Instant::now();
 
     // Build a collection of futures dynamically
+    let table_names: Vec<String> = (1..=5).map(|i| format!("table_{}", i)).collect();
     let mut futures = Vec::new();
-    for i in 1..=5 {
-        let delay = Duration::from_millis(50 + i * 20);
-        futures.push(simulate_database_query(&format!("table_{}", i), delay));
+    for (i, table_name) in table_names.iter().enumerate() {
+        let delay = Duration::from_millis(50 + (i + 1) as u64 * 20);
+        futures.push(simulate_database_query(table_name, delay));
     }
 
     // Wait for all futures to complete

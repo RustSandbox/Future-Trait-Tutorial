@@ -55,9 +55,5 @@ name = "real_world"
 path = "src/examples/real_world.rs"
 
 [[bin]]
-name = "advanced_patterns"
-path = "src/examples/advanced_patterns.rs"
-
-[[bin]]
 name = "autonomous_agent"
 path = "src/examples/autonomous_agent.rs"
