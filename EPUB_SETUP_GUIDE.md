@@ -135,7 +135,7 @@ Key customizable elements:
 
 To use a custom cover:
 
-1. Replace `epub-book/theme/cover.png` with your design
+1. Use the provided `cover.png` (1024x1536 professional design)
 2. Ensure dimensions are appropriate for book covers (e.g., 1024x1536 for 2:3 aspect ratio)
 3. The build script will automatically copy it to the correct location
 

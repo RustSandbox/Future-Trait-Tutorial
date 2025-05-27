@@ -41,7 +41,7 @@ level = 0
 
 [output.epub]
 # EPUB-specific configuration
-cover-image = "theme/cover.png"
+cover-image = "cover.png"
 additional-css = ["theme/epub.css"]
 use-default-css = true
 curly-quotes = true

@@ -31,7 +31,14 @@ fi
 
 # Prepare cover image for EPUB
 echo "🖼️  Preparing cover image..."
-cp epub-book/theme/cover.png epub-book/src/cover.png
+if [ -f "cover.png" ]; then
+    cp cover.png epub-book/src/cover.png
+    cp cover.png epub-book/theme/cover.png
+    echo "✅ Using root cover.png (1024x1536 professional design)"
+else
+    echo "⚠️  cover.png not found in root directory"
+    exit 1
+fi
 mkdir -p epub-book/src/theme
 cp epub-book/theme/epub.css epub-book/src/theme/
 echo "✅ Cover and theme files prepared!"

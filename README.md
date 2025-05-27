@@ -35,6 +35,7 @@ cd epub-book && mdbook build
 ```
 
 The EPUB version includes:
+- **Professional cover design** (`cover.png` - 1024x1536 resolution)
 - **E-reader optimized** typography and layout
 - **Dark mode support** for comfortable reading
 - **Proper navigation** with table of contents
