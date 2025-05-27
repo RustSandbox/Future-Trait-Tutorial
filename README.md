@@ -1,6 +1,24 @@
 # Future Trait Tutorial: Complete Guide to Async Programming in Rust
 
-This repository contains a comprehensive tutorial for learning the Future trait and async programming in Rust. Each example is thoroughly documented and tested to provide hands-on learning experience.
+This repository contains a comprehensive tutorial for learning the Future trait and async programming in Rust. It includes both a detailed markdown book and thoroughly documented code examples that provide hands-on learning experience.
+
+## 📖 The Complete Future Trait Guide
+
+A comprehensive markdown book covering all aspects of the Future trait:
+
+```bash
+# Install mdBook and serve the book locally
+cargo install mdbook
+mdbook serve --open
+```
+
+The book is organized into four parts:
+- **Part I: Fundamentals** - Async programming basics and the Future trait
+- **Part II: Implementation** - Custom futures and state machines  
+- **Part III: Composition and Patterns** - Combinators and error handling
+- **Part IV: Advanced Topics** - Real-world applications and performance
+
+Visit the book at `http://localhost:3000` for the complete learning experience!
 
 ## 🚀 Quick Start
 
